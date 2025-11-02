@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_code_block_code_blocks",
+  "info": {
+    "displayName": "codeBlock"
+  },
+  "options": {},
+  "attributes": {
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "typescript",
+        "javascript",
+        "html",
+        "css",
+        "java",
+        "sql",
+        "xml",
+        "json"
+      ]
+    },
+    "code": {
+      "type": "text"
+    },
+    "filename": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
