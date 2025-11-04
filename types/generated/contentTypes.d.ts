@@ -449,9 +449,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       ['content.paragraph', 'code-block.code-block', 'image-block.image-block']
     >;
     categories: Schema.Attribute.Relation<'manyToMany', 'api::cat.cat'>;
-    coverimage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -484,6 +481,14 @@ export interface ApiCatCat extends Struct.CollectionTypeSchema {
   };
   attributes: {
     articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    categoryA: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category-combination-image.category-combination-image'
+    >;
+    categoryB: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category-combination-image.category-combination-image'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -493,6 +498,37 @@ export interface ApiCatCat extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCombinationImageCategoryCombinationImage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'category_combination_images';
+  info: {
+    displayName: 'CategoryCombinationImage';
+    pluralName: 'category-combination-images';
+    singularName: 'category-combination-image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_a: Schema.Attribute.Relation<'manyToOne', 'api::cat.cat'>;
+    category_b: Schema.Attribute.Relation<'manyToOne', 'api::cat.cat'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category-combination-image.category-combination-image'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1011,6 +1047,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
       'api::cat.cat': ApiCatCat;
+      'api::category-combination-image.category-combination-image': ApiCategoryCombinationImageCategoryCombinationImage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

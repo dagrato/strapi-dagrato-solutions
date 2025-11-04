@@ -23,6 +23,18 @@
       "relation": "manyToMany",
       "target": "api::article.article",
       "mappedBy": "categories"
+    },
+    "categoryA": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category-combination-image.category-combination-image",
+      "mappedBy": "category_a"
+    },
+    "categoryB": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category-combination-image.category-combination-image",
+      "mappedBy": "category_b"
     }
   }
 }
