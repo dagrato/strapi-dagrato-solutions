@@ -43,6 +43,10 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "articles"
+    },
+    "views": {
+      "type": "integer",
+      "default": 0
     }
   }
 }

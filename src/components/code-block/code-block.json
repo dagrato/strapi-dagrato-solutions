@@ -15,7 +15,8 @@
         "java",
         "sql",
         "xml",
-        "json"
+        "json",
+        "yml"
       ]
     },
     "code": {

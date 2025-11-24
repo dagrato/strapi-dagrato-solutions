@@ -9,7 +9,17 @@ export interface CodeBlockCodeBlock extends Struct.ComponentSchema {
     code: Schema.Attribute.Text;
     filename: Schema.Attribute.String;
     language: Schema.Attribute.Enumeration<
-      ['typescript', 'javascript', 'html', 'css', 'java', 'sql', 'xml', 'json']
+      [
+        'typescript',
+        'javascript',
+        'html',
+        'css',
+        'java',
+        'sql',
+        'xml',
+        'json',
+        'yml',
+      ]
     >;
   };
 }
