@@ -3,7 +3,12 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:4200'], // add other frontends as needed
+        origin: [
+            'http://localhost:4200',
+            'https://dagrato-solutions.de',
+            'https://www.dagrato-solutions.de',
+            'https://api.dagrato-solutions.de'
+        ],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       headers: [
         'Content-Type',
