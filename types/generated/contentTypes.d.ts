@@ -470,6 +470,33 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiImpressumImpressum extends Struct.SingleTypeSchema {
+  collectionName: 'impressum';
+  info: {
+    description: 'Legal notice content for the company page';
+    displayName: 'Impressum';
+    pluralName: 'impressums';
+    singularName: 'impressum';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::impressum.impressum'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Impressum'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCatCat extends Struct.CollectionTypeSchema {
   collectionName: 'cats';
   info: {
@@ -1047,6 +1074,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
+      'api::impressum.impressum': ApiImpressumImpressum;
       'api::cat.cat': ApiCatCat;
       'api::category-combination-image.category-combination-image': ApiCategoryCombinationImageCategoryCombinationImage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
