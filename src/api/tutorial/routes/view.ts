@@ -3,7 +3,7 @@ export default {
         {
             method: 'POST',
             path: '/tutorials/:id/view',
-            handler: 'article.view',
+            handler: 'tutorial.view',
             config: {
                 auth: false,
             },

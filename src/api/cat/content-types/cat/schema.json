@@ -18,10 +18,10 @@
       "type": "uid",
       "targetField": "name"
     },
-    "articles": {
+    "tutorials": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::article.article",
+      "target": "api::tutorial.tutorial",
       "mappedBy": "categories"
     },
     "categoryA": {

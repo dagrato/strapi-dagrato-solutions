@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "company_articles",
+  "info": {
+    "singularName": "company-article",
+    "pluralName": "company-articles",
+    "displayName": "Company Article"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "description": {
+      "type": "text"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false
+    },
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "company.tag"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "publishedAt": {
+      "type": "datetime"
+    },
+    "views": {
+      "type": "integer",
+      "default": 0
+    },
+    "seo": {
+      "type": "component",
+      "component": "company.seo"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "company.text-block",
+        "company.image-block",
+        "company.video-block",
+        "company.link-block",
+        "company.quote-block",
+        "company.code-block"
+      ]
+    }
+  }
+}
+

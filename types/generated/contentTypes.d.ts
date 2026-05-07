@@ -430,12 +430,12 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'articles';
+export interface ApiTutorialTutorial extends Struct.CollectionTypeSchema {
+  collectionName: 'tutorials';
   info: {
-    displayName: 'article';
-    pluralName: 'articles';
-    singularName: 'article';
+    displayName: 'tutorial';
+    pluralName: 'tutorials';
+    singularName: 'tutorial';
   };
   options: {
     draftAndPublish: true;
@@ -456,7 +456,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::article.article'
+      'api::tutorial.tutorial'
     > &
       Schema.Attribute.Private;
     published: Schema.Attribute.Date;
@@ -508,7 +508,7 @@ export interface ApiCatCat extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    tutorials: Schema.Attribute.Relation<'manyToMany', 'api::tutorial.tutorial'>;
     categoryA: Schema.Attribute.Relation<
       'oneToMany',
       'api::category-combination-image.category-combination-image'
@@ -1020,7 +1020,7 @@ export interface PluginUsersPermissionsUser
     draftAndPublish: false;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    tutorials: Schema.Attribute.Relation<'oneToMany', 'api::tutorial.tutorial'>;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -1073,7 +1073,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::article.article': ApiArticleArticle;
+      'api::tutorial.tutorial': ApiTutorialTutorial;
       'api::impressum.impressum': ApiImpressumImpressum;
       'api::cat.cat': ApiCatCat;
       'api::category-combination-image.category-combination-image': ApiCategoryCombinationImageCategoryCombinationImage;

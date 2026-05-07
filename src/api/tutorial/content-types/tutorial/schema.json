@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "tutorials",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "article"
+    "singularName": "tutorial",
+    "pluralName": "tutorials",
+    "displayName": "tutorial"
   },
   "options": {
     "draftAndPublish": true
@@ -35,12 +35,14 @@
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::cat.cat"
+      "target": "api::cat.cat",
+      "inversedBy": "tutorials"
     },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "plugin::users-permissions.user"
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tutorials"
     },
     "views": {
       "type": "integer",
@@ -48,3 +50,4 @@
     }
   }
 }
+

@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plugin_versions",
+  "info": {
+    "singularName": "plugin-version",
+    "pluralName": "plugin-versions",
+    "displayName": "Plugin Version"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pluginName": {
+      "type": "string",
+      "required": true
+    },
+    "version": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "releaseNotes": {
+      "type": "richtext"
+    },
+    "changelog": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugin.changelog-item"
+    },
+    "downloadUrl": {
+      "type": "string"
+    },
+    "documentationUrl": {
+      "type": "string"
+    },
+    "installationInstructions": {
+      "type": "richtext"
+    },
+    "requirements": {
+      "type": "json",
+      "default": {}
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugin.feature"
+    },
+    "bugFixes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugin.bug-fix"
+    },
+    "knownIssues": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugin.known-issue"
+    },
+    "isLatest": {
+      "type": "boolean",
+      "default": false
+    },
+    "isStable": {
+      "type": "boolean",
+      "default": false
+    },
+    "releaseDate": {
+      "type": "datetime"
+    },
+    "endOfLife": {
+      "type": "datetime"
+    },
+    "compatibility": {
+      "type": "json",
+      "default": {}
+    },
+    "fileSize": {
+      "type": "string"
+    },
+    "downloads": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
+
